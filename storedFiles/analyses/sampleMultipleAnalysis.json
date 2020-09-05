@@ -1,0 +1,26 @@
+[
+  {
+    "emotion": {
+      "key": "sad",
+      "value": 0.9470581412315369
+    },
+    "gender": "unknown",
+    "age": 53
+  },
+  {
+    "emotion": {
+      "key": "angry",
+      "value": 0.9999854564666748
+    },
+    "gender": "male",
+    "age": 46
+  },
+  {
+    "emotion": {
+      "key": "surprised",
+      "value": 0.9847612380981445
+    },
+    "gender": "male",
+    "age": 47
+  }
+]

@@ -83,3 +83,32 @@ router.post(
         res.status(200).json({filename: filename, type: type.split('.')[1]}).send();
     }
 );
+
+router.post(
+    "/detectMultiple",
+    upload.single(""),
+    (req, res) => {
+        if (!req.file) {
+            return res.status(400).json({error: 'Please provide any image file'});
+        }
+        if (!req.file.mimetype)
+            return res.status(400).json({error: 'File corrupted'});
+        let mimeTypeParts = req.file.mimetype.split('/');
+        if (!mimeTypeParts || mimeTypeParts.length < 1 || mimeTypeParts[0] !== 'image') {
+            return res.status(400).json({error: 'Provided file is not an image!'});
+        }
+        const tempPath = req.file.path;
+        const type = '.' + getFileExtension(mimeTypeParts[mimeTypeParts.length - 1]);
+        const filename = uuidv1();
+        const targetPath = path.join(__dirname, "/../storedFiles/images/" + filename + type);
+        fs.readFile(tempPath, function (err, data) {
+            fs.writeFile(targetPath, data, function (err) {
+                if (err) {
+                    return res.status(500).json({error: 'An error occurred during file processing'});
+                }
+            });
+            faceApi.detectMultipleWithAgeGender(data, targetPath.replace('images', 'analyses'));
+        });
+        res.status(200).json({filename: filename, type: type.split('.')[1]}).send();
+    }
+);
