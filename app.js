@@ -40,5 +40,4 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 app.get("/", express.static(path.join(__dirname, "./public")));
-
 module.exports = app;
