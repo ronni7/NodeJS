@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/.bin/jasmine-node spec"
   },
   "dependencies": {
     "@std/esm": "^0.26.0",
@@ -16,6 +17,7 @@
     "express": "~4.16.1",
     "face-api.js": "^0.22.2",
     "http-errors": "~1.6.3",
+    "jasmine-node": "^3.0.0",
     "morgan": "~1.9.1",
     "node": "^10.21.0",
     "pug": "^2.0.4",
