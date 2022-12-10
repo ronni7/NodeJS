@@ -14,7 +14,7 @@
     "canvas": "^2.6.1",
     "cookie-parser": "^1.4.5",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "face-api.js": "^0.22.2",
     "http-errors": "~1.6.3",
     "jasmine-node": "^3.0.0",
